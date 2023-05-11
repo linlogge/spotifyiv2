@@ -1,0 +1,14 @@
+[Unit]
+Description=spotifyiv2 (an open source Spotify client)
+Documentation=https://github.com/spotifyiv2-org/spotifyiv2
+Documentation=https://github.com/spotifyiv2-org/spotifyiv2/wiki/Options
+Wants=network.target sound.target
+After=network.target sound.target
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/spotifyiv2 --name "%u@%H"
+
+[Install]
+WantedBy=default.target

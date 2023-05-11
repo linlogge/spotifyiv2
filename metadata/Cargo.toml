@@ -1,0 +1,28 @@
+[package]
+name = "spotifyiv2-metadata"
+version = "0.5.0-dev"
+rust-version = "1.61"
+authors = ["Paul Lietar <paul@lietar.net>"]
+description = "The metadata logic for spotifyiv2"
+license = "MIT"
+repository = "https://github.com/spotifyiv2-org/spotifyiv2"
+edition = "2021"
+
+[dependencies]
+async-trait = "0.1"
+byteorder = "1"
+bytes = "1"
+log = "0.4"
+protobuf = "3"
+thiserror = "1"
+uuid = { version = "1", default-features = false }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dependencies.spotifyiv2-core]
+path = "../core"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-protocol]
+path = "../protocol"
+version = "0.5.0-dev"

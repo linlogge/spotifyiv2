@@ -1,0 +1,27 @@
+[package]
+name = "spotifyiv2-audio"
+version = "0.5.0-dev"
+rust-version = "1.61"
+authors = ["Paul Lietar <paul@lietar.net>"]
+description = "The audio fetching logic for spotifyiv2"
+license = "MIT"
+repository = "https://github.com/spotifyiv2-org/spotifyiv2"
+edition = "2021"
+
+[dependencies.spotifyiv2-core]
+path = "../core"
+version = "0.5.0-dev"
+
+[dependencies]
+aes = "0.8"
+byteorder = "1.4"
+bytes = "1"
+ctr = "0.9"
+futures-core = "0.3"
+futures-util = "0.3"
+hyper = { version = "0.14", features = ["client"] }
+log = "0.4"
+parking_lot = { version = "0.12", features = ["deadlock_detection"] }
+tempfile = "3"
+thiserror = "1.0"
+tokio = { version = "1", features = ["macros", "parking_lot", "sync"] }

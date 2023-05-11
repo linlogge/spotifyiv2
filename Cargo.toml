@@ -1,0 +1,75 @@
+[package]
+name = "spotify-iv2"
+version = "0.5.0-dev"
+rust-version = "1.61"
+license = "MIT"
+description = "An simple spotify client and playback library"
+edition = "2021"
+
+[workspace]
+
+[lib]
+name = "spotify_iv2"
+path = "src/lib.rs"
+
+[[bin]]
+name = "spotify_iv2"
+path = "src/main.rs"
+doc = false
+
+[dependencies.spotifyiv2-audio]
+path = "audio"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-connect]
+path = "connect"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-core]
+path = "core"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-discovery]
+path = "discovery"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-metadata]
+path = "metadata"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-playback]
+path = "playback"
+version = "0.5.0-dev"
+
+[dependencies.spotifyiv2-protocol]
+path = "protocol"
+version = "0.5.0-dev"
+
+[dependencies]
+env_logger =  { version = "0.10", default-features = false, features = ["color", "humantime", "auto-color"] }
+futures-util = { version = "0.3", default_features = false }
+getopts = "0.2"
+hex = "0.4"
+log = "0.4"
+rpassword = "7.0"
+sha1 = "0.10"
+thiserror = "1.0"
+tokio = { version = "1", features = ["rt", "macros", "signal", "sync", "parking_lot", "process"] }
+url = "2.2"
+
+[features]
+alsa-backend = ["spotifyiv2-playback/alsa-backend"]
+portaudio-backend = ["spotifyiv2-playback/portaudio-backend"]
+pulseaudio-backend = ["spotifyiv2-playback/pulseaudio-backend"]
+jackaudio-backend = ["spotifyiv2-playback/jackaudio-backend"]
+rodio-backend = ["spotifyiv2-playback/rodio-backend"]
+rodiojack-backend = ["spotifyiv2-playback/rodiojack-backend"]
+sdl-backend = ["spotifyiv2-playback/sdl-backend"]
+gstreamer-backend = ["spotifyiv2-playback/gstreamer-backend"]
+
+with-dns-sd = ["spotifyiv2-core/with-dns-sd", "spotifyiv2-discovery/with-dns-sd"]
+
+passthrough-decoder = ["spotifyiv2-playback/passthrough-decoder"]
+
+default = ["rodio-backend"]
+
